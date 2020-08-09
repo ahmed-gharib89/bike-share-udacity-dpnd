@@ -190,13 +190,13 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-def raw_data(df):
+def display_raw_data(df):
     """Ask the user if he wants to display the raw data and print 5 rows at time"""
     raw = input('\nWould you like to diplay raw data?\n')
     if raw.lower() == 'yes':
         count = 0
         while True:
-            print(df.loc[count: count+4])
+            print(df.iloc[count: count+5])
             count += 5
             ask = input('Next 5 raws?')
             if ask.lower() != 'yes':
@@ -212,7 +212,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        raw_data(df)
+        display_raw_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
