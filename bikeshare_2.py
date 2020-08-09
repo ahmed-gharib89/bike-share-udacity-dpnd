@@ -173,10 +173,12 @@ def user_stats(df):
 
     # Display counts of user types
     print(df['User Type'].value_counts())
+    print('\n\n')
 
     # Display counts of gender
     if 'Gender' in(df.columns):
         print(df['Gender'].value_counts())
+        print('\n\n')
 
 
     # Display earliest, most recent, and most common year of birth
@@ -194,7 +196,8 @@ def raw_data(df):
     if raw.lower() == 'yes':
         count = 0
         while True:
-            print(df.loc[count: count+5])
+            print(df.loc[count: count+4])
+            count += 5
             ask = input('Next 5 raws?')
             if ask.lower() != 'yes':
                 break
